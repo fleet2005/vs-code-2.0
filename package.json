@@ -1,0 +1,113 @@
+{
+  "name": "advanced-copy-paste",
+  "displayName": "Advanced Copy Paste",
+  "description": "Advanced copy paste extension with multiple data structure support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:advanced-copy-paste.copy",
+    "onCommand:advanced-copy-paste.paste",
+    "onCommand:advanced-copy-paste.displayContent",
+    "onCommand:advanced-copy-paste.switchDataStructure",
+    "onCommand:advanced-copy-paste.clearContent"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "advanced-copy-paste.copy",
+        "title": "Advanced Copy"
+      },
+      {
+        "command": "advanced-copy-paste.paste",
+        "title": "Advanced Paste"
+      },
+      {
+        "command": "advanced-copy-paste.displayContent",
+        "title": "Display Content"
+      },
+      {
+        "command": "advanced-copy-paste.switchDataStructure",
+        "title": "Switch Data Structure"
+      },
+      {
+        "command": "advanced-copy-paste.clearContent",
+        "title": "Clear Content"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "advanced-copy-paste.copy",
+        "key": "ctrl+c",
+        "mac": "cmd+c"
+      },
+      {
+        "command": "advanced-copy-paste.paste",
+        "key": "ctrl+v",
+        "mac": "cmd+v"
+      },
+      {
+        "command": "advanced-copy-paste.displayContent",
+        "key": "ctrl+0",
+        "mac": "cmd+0"
+      },
+      {
+        "command": "advanced-copy-paste.displayContent",
+        "key": "ctrl+1",
+        "mac": "cmd+1"
+      },
+      {
+        "command": "advanced-copy-paste.displayContent",
+        "key": "ctrl+2",
+        "mac": "cmd+2"
+      },
+      {
+        "command": "advanced-copy-paste.switchDataStructure",
+        "key": "ctrl+4",
+        "mac": "cmd+4"
+      },
+      {
+        "command": "advanced-copy-paste.clearContent",
+        "key": "ctrl+5",
+        "mac": "cmd+5"
+      }
+    ],
+    "configuration": {
+      "title": "Advanced Copy Paste",
+      "properties": {
+        "advancedCopyPaste.dataStructure": {
+          "type": "string",
+          "enum": ["array", "stack", "queue"],
+          "default": "array",
+          "description": "Choose the data structure to use for storage"
+        },
+        "advancedCopyPaste.maxArraySize": {
+          "type": "number",
+          "default": 3,
+          "description": "Maximum size for array storage"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+} 
